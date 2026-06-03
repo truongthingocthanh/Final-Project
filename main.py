@@ -1,22 +1,23 @@
-from models.phuong_tien import XeMay, OTo
-from datetime import datetime
-import time
+from services.quan_ly_bai_xe import QuanLyBaiXe
 
 if __name__ == "__main__":
-    print("--- BẮT ĐẦU KIỂM THỬ TẦNG MODELS ---")
+    print("--- BẮT ĐẦU KIỂM THỬ TẦNG SERVICES ---")
     
-    # 1. Thử tạo một chiếc xe máy vé lượt
-    xe_may_cua_thanh = XeMay("M01", "73A-12345", "Lượt")
-    print(f"Xe máy vào bãi lúc: {xe_may_cua_thanh.get_thoi_gian_vao()}")
+    # Khởi tạo bộ não quản lý bãi xe
+    he_thong = QuanLyBaiXe()
     
-    # Giả lập thời gian trôi qua 2 giây để test ô tô tính tiền theo thời gian
-    print("Chờ 2 giây để giả lập ô tô đỗ xe...")
-    time.sleep(2)
+    # 1. Thử đưa 1 xe máy và 1 ô tô vào bãi (Check-in)
+    print("\n[Thử nghiệm Check-in]")
+    ok1, msg1 = he_thong.check_in(loai_xe="2", ma_ve="V01", bien_so="75F1-1234", loai_ve="Lượt")
+    print(msg1)
     
-    # 2. Thử tạo một chiếc ô tô vé lượt
-    oto_cua_thay_long = OTo("O01", "75A-99999", "Lượt")
-    thoi_gian_ra_ao = datetime.now()
+    ok2, msg2 = he_thong.check_in(loai_xe="3", ma_ve="V02", bien_so="75A-5555", loai_ve="Tháng")
+    print(msg2)
     
-    # Kiểm tra tính Đa hình: Gọi cùng 1 hàm nhưng tính tiền khác nhau
-    print(f"Phí gửi xe máy (Cố định): {xe_may_cua_thanh.tinh_phi_gui(thoi_gian_ra_ao)} VNĐ")
-    print(f"Phí gửi ô tô (Theo giờ - Đã chờ 2s): {oto_cua_thay_long.tinh_phi_gui(thoi_gian_ra_ao)} VNĐ")
+    # 2. Thử cho xe máy ra bãi (Check-out) xem có tính tiền được không
+    print("\n[Thử nghiệm Check-out xe máy V01]")
+    thanh_cong, ket_qua = he_thong.check_out("V01")
+    if thanh_cong:
+        print(f"Xe ra thành công! Biển số: {ket_qua['bien_so']} | Phí gửi: {ket_qua['phi']} VNĐ")
+    else:
+        print(ket_qua)
