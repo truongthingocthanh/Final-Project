@@ -71,7 +71,7 @@ class GiaoDienConsole:
                         print("=========================================================================")
 
                 elif lua_chon == "4":
-                    print("\n[Hệ thống] Đang đồng bộ dữ liệu và đóng bãi xe. Tạm biệt Thanh nhé!")
+                    print("\n[Hệ thống] Đang đồng bộ dữ liệu và đóng bãi xe. Tạm biệt!")
                     break
                     
                 else:
