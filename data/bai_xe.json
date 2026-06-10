@@ -1,9 +1,16 @@
 [
     {
-        "class": "OTo",
-        "ma_ve": "V02",
-        "bien_so": "75A-5555",
-        "loai_ve": "Tháng",
-        "thoi_gian_vao": "2026-06-03 21:35:23"
+        "class": "XeDap",
+        "ma_ve": "01",
+        "bien_so": "Không có",
+        "loai_ve": "Lượt",
+        "thoi_gian_vao": "2026-06-10 16:29:08"
+    },
+    {
+        "class": "XeMay",
+        "ma_ve": "M01",
+        "bien_so": "36A-363636",
+        "loai_ve": "Lượt",
+        "thoi_gian_vao": "2026-06-10 16:30:43"
     }
 ]
