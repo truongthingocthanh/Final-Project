@@ -39,7 +39,7 @@ class GiaoDienConsole:
                 elif chon == "2": self.xu_ly_check_out()
                 elif chon == "3": self.xu_ly_hien_thi_danh_sach()
                 elif chon == "4": self.xu_ly_tim_kiem()
-                elif chon == "5": self.xu_ly_su_thong_tin()
+                elif chon == "5": self.xu_ly_sua_thong_tin()
                 elif chon == "6": self.xu_ly_giao_dich_gia_han()
                 elif chon == "7": self.xu_ly_thong_ke()
                 elif chon == "8": self.xu_ly_xuat_csv()

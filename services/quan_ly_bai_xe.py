@@ -9,7 +9,7 @@ class QuanLyBaiXe:
         self.thong_ke_service = ThongKeService()
         self.danh_sach_xe = self.luu_tru_service.tai_danh_sach_xe()
 
-def check_in(self, loai_xe, ma_ve, bien_so, loai_ve):
+    def check_in(self, loai_xe, ma_ve, bien_so, loai_ve):
         ma_ve = ma_ve.strip()
         
         if loai_xe == "1" and not ma_ve.upper().startswith('B'):
