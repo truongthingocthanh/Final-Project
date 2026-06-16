@@ -11,7 +11,7 @@ class GiaoDienConsole:
     def hien_thi_menu(self):
         while True:
             print("\n" + "="*50)
-            print(" HỆ THỐNG QUẢN LÝ BÃI ĐỖ XE - ĐỀ TÀI 10 (SQLITE PRO)")
+            print(" HỆ THỐNG QUẢN LÝ BÃI ĐỖ XE - ĐỀ TÀI 10")
             print("="*50)
             print("1. Nhận xe vào bãi (Check-in)")
             print("2. Trả xe xuất bãi & Tính tiền (Check-out)")
