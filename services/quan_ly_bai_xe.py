@@ -9,15 +9,19 @@ class QuanLyBaiXe:
         self.thong_ke_service = ThongKeService()
         self.danh_sach_xe = self.luu_tru_service.tai_danh_sach_xe()
 
-    def check_in(self, loai_xe, ma_ve, bien_so, loai_ve):
+def check_in(self, loai_xe, ma_ve, bien_so, loai_ve):
         ma_ve = ma_ve.strip()
-        # Chặn quy tắc mã vé
-        if loai_xe == "1" and (ma_ve.upper().startswith('M') or ma_ve.upper().startswith('O')):
-            return False, "Mã vé xe đạp không được bắt đầu bằng chữ 'M' hoặc 'O'!"
+        
+        if loai_xe == "1" and not ma_ve.upper().startswith('B'):
+            return False, "Mã vé Xe đạp bắt buộc phải bắt đầu bằng chữ 'B'!"
         elif loai_xe == "2" and not ma_ve.upper().startswith('M'):
-            return False, "Mã vé xe máy bắt buộc phải bắt đầu bằng chữ 'M'!"
-        elif loai_xe == "3" and not ma_ve.upper().startswith('O'):
-            return False, "Mã vé ô tô bắt buộc phải bắt đầu bằng chữ 'O'!"
+            return False, "Mã vé Xe máy bắt buộc phải bắt đầu bằng chữ 'M'!"
+        elif loai_xe == "3" and not ma_ve.upper().startswith('C'):
+            return False, "Mã vé Ô tô bắt buộc phải bắt đầu bằng chữ 'C'!"
+
+        for xe in self.danh_sach_xe:
+            if xe.get_ma_ve().upper() == ma_ve.upper():
+                return False, "Mã vé này hiện đang được sử dụng trong bãi!"
 
         for xe in self.danh_sach_xe:
             if xe.get_ma_ve().upper() == ma_ve.upper():
